@@ -73,7 +73,8 @@ class InterbotixArmXSInterface(object):
         self.core.pub_group.publish(joint_commands)
         if blocking:
             rospy.sleep(self.moving_time)
-        self.T_sb = mr.FKinSpace(self.robot_des.M, self.robot_des.Slist, self.joint_commands)
+        self.T_sb = None
+        # self.T_sb = mr.FKinSpace(self.robot_des.M, self.robot_des.Slist, self.joint_commands)
 
     ### @brief Helper function to command the 'Profile_Velocity' and 'Profile_Acceleration' motor registers
     ### @param moving_time - duration in seconds that the robot should move
