@@ -9,24 +9,19 @@ A ros1 package for aloha v2
 roslaunch aloha 4arms_teleop.launch
 ```
 
-- Launch right arm
-
-```bash
-rosrun aloha right_side_teleop.py
-```
-
-
-- Launch left arm
-
-
-```bash
-rosrun aloha left_side_teleop.py
-```
-
 - Launch viz
 
 ```bash
 roslaunch aloha_viz view_robot.launch
+```
+
+- Depth cameras, launch sequentially after 5 secs each
+
+```bash
+roslaunch aloha_realsense_cameras d405_01.launch 
+roslaunch aloha_realsense_cameras d405_02.launch 
+roslaunch aloha_realsense_cameras d405_03.launch 
+roslaunch aloha_realsense_cameras d405_04.launch 
 ```
 
 ## Setup
@@ -67,17 +62,21 @@ sudo udevadm info --name=/dev/ttyUSB1 --attribute-walk | grep serial
 sudo udevadm info --name=/dev/ttyUSB2 --attribute-walk | grep serial
 sudo udevadm info --name=/dev/ttyUSB3 --attribute-walk | grep serial
 ```
+- to obtain the serial number. Use the first one that shows up, the format should look similar to ``FT6S4DSP``.
+
+- For cameras list them via
+```bash
+lsusb
+```
+
+- Get ID_SHORT_SERIAL corresponding to the v4l
 
 ```bash
-sudo udevadm info --name=/dev/video0 --attribute-walk | grep serial
-sudo udevadm info --name=/dev/video1 --attribute-walk | grep serial
-sudo udevadm info --name=/dev/video2 --attribute-walk | grep serial
-sudo udevadm info --name=/dev/video3 --attribute-walk | grep serial
+lsusb -v -s 002:005
 ```
-to obtain the serial number. Use the first one that shows up, the format should look similar to ``FT6S4DSP``.
-
 
 - To apply the changes, run 
+
 ```bash
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
