@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find aloha_realsense_cameras)/launch/d405_01.launch" />
+  <include file="$(find aloha_realsense_cameras)/launch/d405_02.launch" />
+  <include file="$(find aloha_realsense_cameras)/launch/d405_03.launch" />
+  <include file="$(find aloha_realsense_cameras)/launch/d405_04.launch" />  
+</launch>
