@@ -32,6 +32,7 @@ function install_ros2_dependencies () {
                          chrony\
                          sshpass\
                          neofetch\
+                         v4l-utils\
                          libpcl-dev build-essential\
                          cmake\
                          libglfw3-dev\
