@@ -90,7 +90,7 @@
     type="static_transform_publisher"
     args="0.56 -1.01 0 1.57 0 0 /world /$(arg robot_name_puppet_right)/base_link" />
 
-  <!-- <node
+  <node
     name="left_teleop_node"
     pkg="aloha"
     type="left_side_teleop.py"/>
@@ -98,7 +98,7 @@
   <node
     name="right_teleop_node"
     pkg="aloha"
-    type="right_side_teleop.py"/> -->
+    type="right_side_teleop.py"/>
 
   <!-- <include file="$(find aloha)/launch/4cams.launch"/> -->
 
